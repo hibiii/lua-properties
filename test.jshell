@@ -1,9 +1,12 @@
 BufferedReader br = new BufferedReader(new FileReader("test.properties"));
 Properties props = new Properties();
 props.load(br);
+
 List<String> list = new ArrayList<String>(props.stringPropertyNames());
 Collections.sort(list);
+
 for (String key : list) {
     System.out.println(String.format("['%s'] = '%s'", key, props.getProperty(key)));
 }
+
 /exit
