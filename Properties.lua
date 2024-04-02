@@ -8,8 +8,8 @@ metatable.__newindex = function(prop, key, value)
         rawset(prop, key, nil)
         return
     end
-    if type(value) ~= 'string' or type(value) ~= 'number' then
-        error 'Properties does not support non-string values (number values are converted)'
+    if type(value) ~= 'string' and type(value) ~= 'number' then
+        error ('Properties does not support non-string value \''..value..'\'')
     end
     if type(value) == 'number' then
         value = tostring(value)
