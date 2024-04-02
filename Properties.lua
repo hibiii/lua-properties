@@ -18,6 +18,10 @@ metatable.__newindex = function(prop, key, value)
 end
 
 local Properties = {}
+---Returns an empty `Properties` table. This is different from an empty Lua
+---table because it  verifies that keys and values are strings before they are
+---put, and will error out if they aren't.
+---@return table properties
 Properties.new = function()
     return setmetatable({}, metatable)
 end
